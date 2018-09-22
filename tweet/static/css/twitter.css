@@ -19,3 +19,7 @@ body {
   max-width: 800px;
   padding: 0 15px;
 }
+
+th.sort {
+  cursor: pointer;
+}
