@@ -1,0 +1,94 @@
+<!-- Add Tweet Modal -->
+<div class="modal fade" id="addTweetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">New Tweet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form v-on:submit.prevent="addTweet()">
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="tweet_name">Tweet Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tweet_name"
+              required
+              placeholder="Enter Tweet Name"
+              v-model="newTweet.tweet_name"
+              required="required" >
+          </div>
+          <div class="form-group">
+            <label for="tweet_message">Tweet Message</label>
+            <textarea
+              class="form-control"
+              id="tweet_message"
+              maxlength=50
+              required
+              placeholder="Enter Tweet Message"
+              v-model="newTweet.tweet_message"
+              required="required"
+              rows="3"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary m-progress" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="loading" v-if="loading===true">Loading&#8230;</div>
+</div>
+<!-- End of add tweet modal -->
+
+
+<!-- Edit Tweet Modal -->
+<div class="modal fade" id="editTweetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Tweet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form v-on:submit.prevent="updateTweet()">
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="tweet_name">Tweet Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tweet_name"
+              required
+              placeholder="Enter Tweet Name"
+              v-model="currentTweet.tweet_name"
+              required="required" >
+          </div>
+          <div class="form-group">
+            <label for="tweet_message">Tweet Message</label>
+            <textarea
+              class="form-control"
+              id="tweet_message"
+              maxlength=50
+              required
+              placeholder="Enter Tweet Message"
+              v-model="currentTweet.tweet_message"
+              required="required"
+              rows="3"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary m-progress" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="loading" v-if="loading===true">Loading&#8230;</div>
+</div>
+<!-- End of edit tweet modal -->
