@@ -2,25 +2,29 @@
     <div class="container">
       <div class="row">
         <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTweetModal">New Tweet</button>
-        <table class="table mt-3">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Heading</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="tweet in tweets">
-              <th scope="row">${tweet.tweet_id}</th>
-              <td>${tweet.tweet_name}</td>
-              <td>
-                <button class="btn btn-info" v-on:click="getTweet(tweet.tweet_id)">Edit</button>
-                <button class="btn btn-danger" v-on:click="deleteTweet(tweet.tweet_id)">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table table-hover mt-3">
+            <thead>
+              <tr>
+                <th scope="col" @click="sort('created_at')">Created At</th>
+                <th scope="col" @click="sort('tweet_name')">Name</th>
+                <th scope="col">Message</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="tweet in sortedTweets">
+                <th scope="row">${formatDate(tweet.created_at)}</th>
+                <td>${tweet.tweet_name}</td>
+                <td>${tweet.tweet_message}</td>
+                <td>
+                  <button class="btn btn-info" v-on:click="getTweet(tweet.tweet_id)">Edit</button>
+                  <button class="btn btn-danger" v-on:click="deleteTweet(tweet.tweet_id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         {% include 'partials/tweet-modal.html'%}
       </div>
     </div>
