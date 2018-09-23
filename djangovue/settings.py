@@ -25,7 +25,7 @@ SECRET_KEY = '5t%b^yfb9$ls%xctdiu7z#^dlhn*@-*s^a%-=c0c1s95+wpm1j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangovue.charlesen.fr']
+ALLOWED_HOSTS = ['djangovue.charlesen.fr', '127.0.0.1']
 
 
 # Application definition
