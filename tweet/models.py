@@ -3,7 +3,11 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+"""
 # My Poor Man's Twitter Model.
+A tweet consists of a 50 character text input, a datetime that automatically
+records the time of a message and a name
+"""
 class Tweet(models.Model):
     tweet_id = models.AutoField(primary_key=True)
     tweet_message = models.CharField(max_length=50)
@@ -16,4 +20,4 @@ class Meta:
     ordering = ['-created_at']
 
     def __str__(self):
-        return self.content
+        return self.tweet_message
